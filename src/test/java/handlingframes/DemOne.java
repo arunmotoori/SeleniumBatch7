@@ -1,0 +1,28 @@
+package handlingframes;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DemOne {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver =  new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://letcode.in/frame");
+		
+		//driver.switchTo().frame("firstFr");
+		
+		WebElement frameOne = driver.findElement(By.xpath("//iframe[@src='frameui']"));
+		
+		driver.switchTo().frame(frameOne);
+		
+		driver.findElement(By.name("fname")).sendKeys("Arun");
+		
+		driver.findElement(By.name("lname")).sendKeys("Motoori");
+		
+	}
+
+}
